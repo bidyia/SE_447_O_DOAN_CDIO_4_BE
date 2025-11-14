@@ -1,0 +1,283 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ChiTietThuongHieuSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('chi_tiet_thuong_hieus')->delete();
+
+        DB::table('chi_tiet_thuong_hieus')->truncate();
+
+        DB::table('chi_tiet_thuong_hieus')->insert(
+            [
+                // InterContinental Danang Sun Peninsula Resort
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn IC1', 'mo_ta_ngan' => 'Phòng đơn tiện nghi', 'mo_ta_dai' => 'Phòng đơn tại InterContinental Danang Sun Peninsula Resort, view biển, nội thất sang trọng.', 'don_gia' => 5000000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi IC2', 'mo_ta_ngan' => 'Phòng đôi thoải mái', 'mo_ta_dai' => 'Phòng đôi tại InterContinental, nội thất hiện đại, phù hợp 2 người.', 'don_gia' => 7000000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP IC3', 'mo_ta_ngan' => 'Phòng VIP sang trọng', 'mo_ta_dai' => 'Phòng VIP rộng rãi, ban công view biển, tiện nghi cao cấp.', 'don_gia' => 12000000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình IC4', 'mo_ta_ngan' => 'Phòng cho gia đình', 'mo_ta_dai' => 'Phòng gia đình với 2 giường lớn, thích hợp gia đình, view biển.', 'don_gia' => 9000000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống IC5', 'mo_ta_ngan' => 'Phòng cao cấp nhất', 'mo_ta_dai' => 'Phòng Tổng thống sang trọng, ban công riêng, đầy đủ tiện nghi 5 sao.', 'don_gia' => 25000000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn IC6', 'mo_ta_ngan' => 'Phòng nghỉ nhỏ gọn', 'mo_ta_dai' => 'Phòng đơn nhỏ tại InterContinental, thích hợp du khách đi công tác.', 'don_gia' => 4800000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi IC7', 'mo_ta_ngan' => 'Phòng đôi tiện nghi', 'mo_ta_dai' => 'Phòng đôi view biển, nội thất sang trọng, tiện ích đầy đủ.', 'don_gia' => 6800000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP IC8', 'mo_ta_ngan' => 'Phòng VIP hiện đại', 'mo_ta_dai' => 'Phòng VIP với giường king, ban công rộng, nội thất hiện đại.', 'don_gia' => 11500000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình IC9', 'mo_ta_ngan' => 'Phòng rộng cho gia đình', 'mo_ta_dai' => 'Phòng gia đình tại InterContinental với 2 phòng ngủ, phù hợp nhóm 4-5 người.', 'don_gia' => 9500000],
+                ['id_thuong_hieu' => 1, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn IC10', 'mo_ta_ngan' => 'Phòng đơn chuẩn 5 sao', 'mo_ta_dai' => 'Phòng đơn tại InterContinental, thiết kế tinh tế, tiện nghi cao cấp.', 'don_gia' => 5200000],
+
+
+                // Vinpearl Resort & Spa Nha Trang
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn VR1', 'mo_ta_ngan' => 'Phòng đơn tiện nghi', 'mo_ta_dai' => 'Phòng đơn tại Vinpearl Resort & Spa Nha Trang, view biển đẹp, nội thất hiện đại.', 'don_gia' => 4800000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi VR2', 'mo_ta_ngan' => 'Phòng đôi thoải mái', 'mo_ta_dai' => 'Phòng đôi tại Vinpearl Resort & Spa Nha Trang, phù hợp 2 khách, tiện nghi cao cấp.', 'don_gia' => 6800000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP VR3', 'mo_ta_ngan' => 'Phòng VIP sang trọng', 'mo_ta_dai' => 'Phòng VIP rộng rãi, nội thất sang trọng, ban công nhìn biển.', 'don_gia' => 11500000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình VR4', 'mo_ta_ngan' => 'Phòng gia đình tiện nghi', 'mo_ta_dai' => 'Phòng gia đình với 2 giường lớn, thích hợp nhóm 4-5 người, view biển.', 'don_gia' => 9000000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống VR5', 'mo_ta_ngan' => 'Phòng tổng thống sang trọng', 'mo_ta_dai' => 'Phòng tổng thống rộng rãi, ban công riêng, nội thất 5 sao.', 'don_gia' => 24000000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn VR6', 'mo_ta_ngan' => 'Phòng đơn nhỏ gọn', 'mo_ta_dai' => 'Phòng đơn tiện nghi tại Vinpearl, phù hợp khách đi công tác.', 'don_gia' => 4700000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi VR7', 'mo_ta_ngan' => 'Phòng đôi thoải mái', 'mo_ta_dai' => 'Phòng đôi view biển, nội thất hiện đại.', 'don_gia' => 6700000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP VR8', 'mo_ta_ngan' => 'Phòng VIP cao cấp', 'mo_ta_dai' => 'Phòng VIP rộng, ban công riêng, tiện nghi đầy đủ.', 'don_gia' => 11200000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình VR9', 'mo_ta_ngan' => 'Phòng gia đình tiện nghi', 'mo_ta_dai' => 'Phòng gia đình 2 giường lớn, view biển đẹp.', 'don_gia' => 9200000],
+                ['id_thuong_hieu' => 2, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn VR10', 'mo_ta_ngan' => 'Phòng đơn sang trọng', 'mo_ta_dai' => 'Phòng đơn tại Vinpearl, nội thất hiện đại, tiện nghi cao cấp.', 'don_gia' => 5000000],
+                
+                
+                //Furama Resort Danang
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn', 'mo_ta_ngan' => 'Phòng đơn tiện nghi', 'mo_ta_dai' => 'Phòng đơn hiện đại, đầy đủ tiện nghi.', 'don_gia' => 4000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi', 'mo_ta_ngan' => 'Phòng đôi', 'mo_ta_dai' => 'Phòng đôi rộng rãi, view hướng biển.', 'don_gia' => 6500000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP', 'mo_ta_ngan' => 'Phòng VIP', 'mo_ta_dai' => 'Phòng VIP sang trọng với ban công riêng.', 'don_gia' => 11000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình', 'mo_ta_ngan' => 'Phòng gia đình', 'mo_ta_dai' => 'Phòng rộng rãi cho gia đình 4-5 người.', 'don_gia' => 14000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống', 'mo_ta_ngan' => 'Phòng Tổng thống', 'mo_ta_dai' => 'Phòng cao cấp nhất, ban công rộng, tiện nghi tối đa.', 'don_gia' => 50000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn Superior', 'mo_ta_ngan' => 'Phòng đơn cao cấp', 'mo_ta_dai' => 'Phòng đơn với view biển đẹp, tiện nghi cao cấp.', 'don_gia' => 4500000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi Superior', 'mo_ta_ngan' => 'Phòng đôi cao cấp', 'mo_ta_dai' => 'Phòng đôi hiện đại, thoáng đãng, đầy đủ tiện nghi.', 'don_gia' => 7000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP Deluxe', 'mo_ta_ngan' => 'Phòng VIP Deluxe', 'mo_ta_dai' => 'Phòng VIP sang trọng hơn với ban công rộng.', 'don_gia' => 12000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình Deluxe', 'mo_ta_ngan' => 'Phòng gia đình Deluxe', 'mo_ta_dai' => 'Phòng rộng rãi, có khu vực sinh hoạt riêng cho gia đình.', 'don_gia' => 15000000],
+                ['id_thuong_hieu' => 3, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống Presidential', 'mo_ta_ngan' => 'Phòng Tổng thống cao cấp', 'mo_ta_dai' => 'Phòng tổng thống đẳng cấp, có sân thượng và view biển tuyệt đẹp.', 'don_gia' => 55000000],
+               
+               
+                //The Reverie Saigon
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn', 'mo_ta_ngan' => 'Phòng đơn', 'mo_ta_dai' => 'Phòng đơn trung tâm, đầy đủ tiện nghi.', 'don_gia' => 4500000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi', 'mo_ta_ngan' => 'Phòng đôi', 'mo_ta_dai' => 'Phòng đôi sang trọng, view thành phố.', 'don_gia' => 7000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP', 'mo_ta_ngan' => 'Phòng VIP', 'mo_ta_dai' => 'Phòng VIP sang trọng, thiết kế Ý.', 'don_gia' => 12000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình', 'mo_ta_ngan' => 'Phòng gia đình', 'mo_ta_dai' => 'Phòng rộng rãi, thích hợp gia đình.', 'don_gia' => 15000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống VIP', 'mo_ta_ngan' => 'Phòng VIP', 'mo_ta_dai' => 'Phòng tổng thống VIP với view thành phố.', 'don_gia' => 60000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn Executive', 'mo_ta_ngan' => 'Phòng đơn cao cấp', 'mo_ta_dai' => 'Phòng đơn hiện đại, tiện nghi chuẩn quốc tế.', 'don_gia' => 5000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi Executive', 'mo_ta_ngan' => 'Phòng đôi cao cấp', 'mo_ta_dai' => 'Phòng đôi sang trọng, ban công rộng.', 'don_gia' => 7500000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP Executive', 'mo_ta_ngan' => 'Phòng VIP Executive', 'mo_ta_dai' => 'Phòng VIP thiết kế Ý, nội thất cao cấp.', 'don_gia' => 12500000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình Executive', 'mo_ta_ngan' => 'Phòng gia đình Executive', 'mo_ta_dai' => 'Phòng rộng rãi, có phòng sinh hoạt riêng.', 'don_gia' => 16000000],
+                ['id_thuong_hieu' => 4, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống Presidential', 'mo_ta_ngan' => 'Phòng Tổng thống cao cấp', 'mo_ta_dai' => 'Phòng tổng thống đẳng cấp, ban công hướng thành phố.', 'don_gia' => 65000000],
+              
+              
+                //La Siesta Premium Hoi An
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn', 'mo_ta_ngan' => 'Phòng đơn', 'mo_ta_dai' => 'Phòng đơn tiện nghi, gần phố cổ.', 'don_gia' => 3500000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi', 'mo_ta_ngan' => 'Phòng đôi', 'mo_ta_dai' => 'Phòng đôi sang trọng, gần phố cổ.', 'don_gia' => 6000000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP', 'mo_ta_ngan' => 'Phòng VIP', 'mo_ta_dai' => 'Phòng VIP sang trọng, view phố cổ.', 'don_gia' => 10000000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình', 'mo_ta_ngan' => 'Phòng gia đình', 'mo_ta_dai' => 'Phòng rộng rãi, thích hợp gia đình.', 'don_gia' => 13000000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống', 'mo_ta_ngan' => 'Phòng Tổng thống', 'mo_ta_dai' => 'Phòng cao cấp nhất với view phố cổ.', 'don_gia' => 55000000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 1, 'ten_san_pham' => 'Phòng đơn Superior', 'mo_ta_ngan' => 'Phòng đơn cao cấp', 'mo_ta_dai' => 'Phòng đơn với tiện nghi nâng cao.', 'don_gia' => 4000000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 2, 'ten_san_pham' => 'Phòng đôi Superior', 'mo_ta_ngan' => 'Phòng đôi cao cấp', 'mo_ta_dai' => 'Phòng đôi rộng rãi, nội thất hiện đại.', 'don_gia' => 6500000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 3, 'ten_san_pham' => 'Phòng VIP Deluxe', 'mo_ta_ngan' => 'Phòng VIP Deluxe', 'mo_ta_dai' => 'Phòng VIP sang trọng, có ban công.', 'don_gia' => 10500000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 4, 'ten_san_pham' => 'Phòng gia đình Deluxe', 'mo_ta_ngan' => 'Phòng gia đình Deluxe', 'mo_ta_dai' => 'Phòng rộng rãi, khu vực sinh hoạt riêng.', 'don_gia' => 13500000],
+                ['id_thuong_hieu' => 5, 'id_don_vi_tinh' => 10, 'ten_san_pham' => 'Phòng tổng thống Presidential', 'mo_ta_ngan' => 'Phòng Tổng thống cao cấp', 'mo_ta_dai' => 'Phòng cao cấp nhất, view phố cổ tuyệt đẹp.', 'don_gia' => 58000000],
+
+
+                // Pizza 4Ps
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza Margherita', 'mo_ta_ngan' => 'Pizza truyền thống', 'mo_ta_dai' => 'Pizza Margherita tại Pizza 4Ps, phô mai Mozzarella, sốt cà chua tươi, nướng tại chỗ.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza Pepperoni', 'mo_ta_ngan' => 'Pizza hương vị Ý', 'mo_ta_dai' => 'Pizza Pepperoni tại Pizza 4Ps, phô mai tươi, topping pepperoni, nướng giòn.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza 4 Cheese', 'mo_ta_ngan' => 'Pizza 4 loại phô mai', 'mo_ta_dai' => 'Pizza 4 Cheese tại Pizza 4Ps, kết hợp phô mai Mozzarella, Cheddar, Parmesan và Gorgonzola.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set Pizza Family', 'mo_ta_ngan' => 'Set ăn gia đình', 'mo_ta_dai' => 'Set Family gồm 2 pizza lớn và 4 phần salad tại Pizza 4Ps.', 'don_gia' => 500000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo Pizza + Soda', 'mo_ta_ngan' => 'Combo nhanh gọn', 'mo_ta_dai' => 'Combo Pizza + nước ngọt tại Pizza 4Ps, tiết kiệm và tiện lợi.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza BBQ Chicken', 'mo_ta_ngan' => 'Pizza thịt gà BBQ', 'mo_ta_dai' => 'Pizza BBQ Chicken tại Pizza 4Ps, sốt BBQ, gà nướng và phô mai.', 'don_gia' => 190000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza Seafood', 'mo_ta_ngan' => 'Pizza hải sản', 'mo_ta_dai' => 'Pizza hải sản tươi tại Pizza 4Ps, mực, tôm, phô mai và sốt đặc biệt.', 'don_gia' => 220000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 2 Pizza + 2 Nước', 'mo_ta_ngan' => 'Set 2 người', 'mo_ta_dai' => 'Set gồm 2 pizza cỡ vừa và 2 ly nước tại Pizza 4Ps.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo Pizza + Salad', 'mo_ta_ngan' => 'Combo ăn nhanh', 'mo_ta_dai' => 'Combo Pizza + Salad tươi tại Pizza 4Ps, phù hợp 1-2 người.', 'don_gia' => 230000],
+                ['id_thuong_hieu' => 6, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Pizza Vegetables', 'mo_ta_ngan' => 'Pizza rau củ', 'mo_ta_dai' => 'Pizza Vegetables tại Pizza 4Ps, rau củ tươi, phô mai Mozzarella, nướng giòn.', 'don_gia' => 160000],
+
+
+                // The Deck Saigon
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Salad Caesar', 'mo_ta_ngan' => 'Salad trộn', 'mo_ta_dai' => 'Salad Caesar tại The Deck Saigon, sốt Caesar đặc trưng, gà nướng và phô mai.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Steak Bò Úc', 'mo_ta_ngan' => 'Steak thượng hạng', 'mo_ta_dai' => 'Steak bò Úc tại The Deck, nướng vừa ăn, kèm rau củ và khoai tây chiên.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 2 món Âu', 'mo_ta_ngan' => 'Set ăn Âu', 'mo_ta_dai' => 'Set gồm món chính và tráng miệng tại The Deck Saigon, phong cách Âu hiện đại.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo Steak + Nước', 'mo_ta_ngan' => 'Combo nhanh gọn', 'mo_ta_dai' => 'Combo Steak + Nước ngọt tại The Deck Saigon, tiết kiệm và tiện lợi.', 'don_gia' => 380000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Mỳ Ý Carbonara', 'mo_ta_ngan' => 'Mỳ Ý truyền thống', 'mo_ta_dai' => 'Mỳ Ý Carbonara tại The Deck, sốt kem, trứng và thịt xông khói.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Cá hồi nướng', 'mo_ta_ngan' => 'Hải sản cao cấp', 'mo_ta_dai' => 'Cá hồi nướng tại The Deck, kèm sốt chanh dây và rau củ.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 3 món Âu', 'mo_ta_ngan' => 'Set ăn sang trọng', 'mo_ta_dai' => 'Set 3 món Âu tại The Deck, món khai vị, món chính và tráng miệng.', 'don_gia' => 600000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo cá hồi + Salad', 'mo_ta_ngan' => 'Combo dinh dưỡng', 'mo_ta_dai' => 'Combo cá hồi nướng và salad tươi, phù hợp 1-2 người.', 'don_gia' => 280000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Soup bí đỏ', 'mo_ta_ngan' => 'Món khai vị', 'mo_ta_dai' => 'Soup bí đỏ tại The Deck Saigon, mềm mịn, thơm ngon.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 7, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Salad rau xanh', 'mo_ta_ngan' => 'Salad tươi mát', 'mo_ta_dai' => 'Salad rau xanh, kèm sốt chanh leo, phục vụ tại The Deck Saigon.', 'don_gia' => 110000],
+               
+               
+                // Nhà Hàng Pasteur Saigon
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Phở bò tái', 'mo_ta_ngan' => 'Phở truyền thống', 'mo_ta_dai' => 'Phở bò tái tại Nhà Hàng Pasteur, nước dùng trong, bò tươi thái lát mỏng.', 'don_gia' => 90000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bún chả Hà Nội', 'mo_ta_ngan' => 'Món Bắc nổi tiếng', 'mo_ta_dai' => 'Bún chả Hà Nội, thịt nướng thơm, nước chấm chuẩn vị.', 'don_gia' => 95000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Gỏi cuốn', 'mo_ta_ngan' => 'Món khai vị', 'mo_ta_dai' => 'Gỏi cuốn tươi, nhân tôm, thịt, rau sống, chấm nước mắm pha.', 'don_gia' => 60000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 3 món Việt', 'mo_ta_ngan' => 'Set ăn trọn gói', 'mo_ta_dai' => 'Set gồm khai vị, món chính, tráng miệng, chuẩn vị Việt.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo Phở + Nước', 'mo_ta_ngan' => 'Combo tiện lợi', 'mo_ta_dai' => 'Combo Phở bò + 1 ly nước tại Nhà Hàng Pasteur.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Cơm tấm sườn', 'mo_ta_ngan' => 'Cơm trưa ngon', 'mo_ta_dai' => 'Cơm tấm sườn nướng, cơm dẻo, nước mắm pha chuẩn.', 'don_gia' => 85000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bánh xèo', 'mo_ta_ngan' => 'Món miền Trung', 'mo_ta_dai' => 'Bánh xèo giòn rụm, nhân tôm thịt, chấm nước mắm pha.', 'don_gia' => 90000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 2 món Việt', 'mo_ta_ngan' => 'Set ăn nhẹ', 'mo_ta_dai' => 'Set gồm món chính + món khai vị, phục vụ nhanh.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo Cơm + Canh', 'mo_ta_ngan' => 'Combo cơm trưa', 'mo_ta_dai' => 'Combo cơm + canh + nước ngọt, nhanh gọn.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 8, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chả giò', 'mo_ta_ngan' => 'Món chiên giòn', 'mo_ta_dai' => 'Chả giò nóng giòn, nhân thịt và rau củ, ăn kèm rau sống.', 'don_gia' => 70000],
+
+
+                // Nom Vietnamese Restaurant
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bánh mì nướng', 'mo_ta_ngan' => 'Bánh mì Việt', 'mo_ta_dai' => 'Bánh mì nướng, pate, thịt nguội và rau củ tươi.', 'don_gia' => 60000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bún bò Huế', 'mo_ta_ngan' => 'Món miền Trung', 'mo_ta_dai' => 'Bún bò Huế, nước dùng đậm đà, thịt bò thái lát.', 'don_gia' => 95000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Cơm gà xối mỡ', 'mo_ta_ngan' => 'Cơm trưa', 'mo_ta_dai' => 'Cơm gà xối mỡ, gà giòn, cơm dẻo, nước chấm ngon.', 'don_gia' => 85000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 2 món Việt', 'mo_ta_ngan' => 'Set ăn sáng', 'mo_ta_dai' => 'Set gồm bún + nước uống, tiện lợi cho 1-2 người.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo gà + Nước', 'mo_ta_ngan' => 'Combo tiện lợi', 'mo_ta_dai' => 'Combo gà xối mỡ + nước ngọt, phù hợp 1 người.', 'don_gia' => 95000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bánh cuốn', 'mo_ta_ngan' => 'Món tráng miệng nhẹ', 'mo_ta_dai' => 'Bánh cuốn nóng, nhân thịt và nấm, ăn kèm nước mắm pha.', 'don_gia' => 70000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Gỏi đu đủ', 'mo_ta_ngan' => 'Gỏi tươi ngon', 'mo_ta_dai' => 'Gỏi đu đủ xanh, thịt bò khô, đậu phộng rang, chua ngọt vừa miệng.', 'don_gia' => 65000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 3 món Việt', 'mo_ta_ngan' => 'Set ăn đầy đủ', 'mo_ta_dai' => 'Set gồm khai vị, món chính, tráng miệng, phục vụ trọn vẹn.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo bún + Nước', 'mo_ta_ngan' => 'Combo nhanh gọn', 'mo_ta_dai' => 'Combo bún bò + nước uống, tiện lợi cho 1 người.', 'don_gia' => 90000],
+                ['id_thuong_hieu' => 9, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Bánh bèo', 'mo_ta_ngan' => 'Món Huế', 'mo_ta_dai' => 'Bánh bèo nhỏ, nhân tôm thịt, rắc hành phi, ăn kèm nước mắm.', 'don_gia' => 70000],
+
+
+                // Sea Fire Salt Grill & Bar
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Tôm nướng muối ớt', 'mo_ta_ngan' => 'Hải sản tươi', 'mo_ta_dai' => 'Tôm tươi nướng muối ớt tại Sea Fire Salt Grill & Bar, thơm ngon, giữ vị tươi.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Cá hồi áp chảo', 'mo_ta_ngan' => 'Món Âu hải sản', 'mo_ta_dai' => 'Cá hồi áp chảo, sốt bơ chanh, phục vụ tại Sea Fire.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Steak bò Mỹ', 'mo_ta_ngan' => 'Steak cao cấp', 'mo_ta_dai' => 'Steak bò Mỹ, nướng vừa ăn, kèm khoai tây và rau củ.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set 2 món hải sản', 'mo_ta_ngan' => 'Set ăn sang trọng', 'mo_ta_dai' => 'Set gồm món hải sản và món chính tại Sea Fire.', 'don_gia' => 500000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo hải sản + Nước', 'mo_ta_ngan' => 'Combo tiện lợi', 'mo_ta_dai' => 'Combo hải sản tươi + nước uống, phù hợp 1-2 người.', 'don_gia' => 300000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Súp hải sản', 'mo_ta_ngan' => 'Khai vị', 'mo_ta_dai' => 'Súp hải sản nóng hổi, giàu dinh dưỡng.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Mực nướng sate', 'mo_ta_ngan' => 'Hải sản ngon', 'mo_ta_dai' => 'Mực tươi nướng sốt sate cay, phục vụ tại Sea Fire.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set hải sản 3 món', 'mo_ta_ngan' => 'Set ăn đủ vị', 'mo_ta_dai' => 'Set gồm khai vị, món chính và tráng miệng hải sản.', 'don_gia' => 550000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo cá + tôm', 'mo_ta_ngan' => 'Combo hải sản', 'mo_ta_dai' => 'Combo cá hồi + tôm nướng, tiện lợi cho 1-2 người.', 'don_gia' => 280000],
+                ['id_thuong_hieu' => 10, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Cua rang muối', 'mo_ta_ngan' => 'Hải sản cao cấp', 'mo_ta_dai' => 'Cua biển tươi rang muối, thơm ngon, phục vụ nóng.', 'don_gia' => 220000],
+             
+             
+                // Sen Spa
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage toàn thân', 'mo_ta_ngan' => 'Massage thư giãn', 'mo_ta_dai' => 'Liệu trình massage toàn thân tại Sen Spa, giúp giảm căng thẳng, cơ thể thư giãn.', 'don_gia' => 300000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage chân', 'mo_ta_ngan' => 'Thư giãn chân', 'mo_ta_dai' => 'Massage chân chuyên sâu, giảm mỏi và đau nhức.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Tẩy tế bào chết', 'mo_ta_ngan' => 'Chăm sóc da', 'mo_ta_dai' => 'Tẩy tế bào chết toàn thân, giúp da mịn màng và sáng hơn.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set massage + tẩy da chết', 'mo_ta_ngan' => 'Combo chăm sóc', 'mo_ta_dai' => 'Combo massage toàn thân và tẩy tế bào chết, trọn gói thư giãn.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo massage + mặt', 'mo_ta_ngan' => 'Combo chăm sóc', 'mo_ta_dai' => 'Massage toàn thân kết hợp chăm sóc da mặt, phục hồi sức khỏe và làn da.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc mặt cơ bản', 'mo_ta_ngan' => 'Làm sạch da', 'mo_ta_dai' => 'Làm sạch và dưỡng da cơ bản, giúp da tươi sáng hơn.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc mặt chuyên sâu', 'mo_ta_ngan' => 'Điều trị da', 'mo_ta_dai' => 'Điều trị da, dưỡng ẩm và phục hồi, thích hợp da nhạy cảm.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set chăm sóc mặt + massage', 'mo_ta_ngan' => 'Combo spa', 'mo_ta_dai' => 'Combo chăm sóc da mặt và massage toàn thân, trọn gói.', 'don_gia' => 500000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo mặt + chân', 'mo_ta_ngan' => 'Combo thư giãn', 'mo_ta_dai' => 'Chăm sóc mặt kết hợp massage chân, thư giãn toàn diện.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 11, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Đắp mặt nạ thảo mộc', 'mo_ta_ngan' => 'Làm đẹp tự nhiên', 'mo_ta_dai' => 'Đắp mặt nạ thảo mộc thiên nhiên, phục hồi và dưỡng ẩm da.', 'don_gia' => 150000],
+
+                
+                // Herbal Spa & Medi-Spa
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage thảo mộc', 'mo_ta_ngan' => 'Massage thiên nhiên', 'mo_ta_dai' => 'Massage toàn thân sử dụng tinh dầu và thảo mộc tự nhiên, giảm căng cơ.', 'don_gia' => 320000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Xông hơi thảo mộc', 'mo_ta_ngan' => 'Thải độc cơ thể', 'mo_ta_dai' => 'Xông hơi thảo mộc giúp thải độc, thư giãn và cải thiện tuần hoàn.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc da mặt organic', 'mo_ta_ngan' => 'Làm đẹp tự nhiên', 'mo_ta_dai' => 'Dưỡng da mặt bằng sản phẩm organic, phục hồi và làm sáng da.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set massage + xông hơi', 'mo_ta_ngan' => 'Combo thư giãn', 'mo_ta_dai' => 'Combo massage toàn thân và xông hơi thảo mộc, thư giãn toàn diện.', 'don_gia' => 500000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo mặt + massage', 'mo_ta_ngan' => 'Combo chăm sóc', 'mo_ta_dai' => 'Chăm sóc mặt kết hợp massage thảo mộc toàn thân.', 'don_gia' => 480000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc tay & chân', 'mo_ta_ngan' => 'Chăm sóc móng', 'mo_ta_dai' => 'Chăm sóc móng tay chân bằng sản phẩm organic, massage nhẹ nhàng.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Đắp mặt nạ dưỡng ẩm', 'mo_ta_ngan' => 'Làm mềm da', 'mo_ta_dai' => 'Đắp mặt nạ dưỡng ẩm tự nhiên, giúp da mềm mịn và sáng hơn.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set mặt + tay chân', 'mo_ta_ngan' => 'Combo chăm sóc', 'mo_ta_dai' => 'Chăm sóc mặt kết hợp massage tay và chân, trọn gói.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo toàn thân + mặt', 'mo_ta_ngan' => 'Trọn gói spa', 'mo_ta_dai' => 'Massage toàn thân kết hợp chăm sóc mặt, trải nghiệm thư giãn hoàn hảo.', 'don_gia' => 550000],
+                ['id_thuong_hieu' => 12, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Thải độc cơ thể', 'mo_ta_ngan' => 'Detox tự nhiên', 'mo_ta_dai' => 'Thải độc cơ thể bằng liệu pháp thảo mộc, giúp cơ thể khỏe mạnh và nhẹ nhàng.', 'don_gia' => 250000],
+                
+
+                // Royal Nails & Spa
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Làm móng tay cơ bản', 'mo_ta_ngan' => 'Chăm sóc móng', 'mo_ta_dai' => 'Chăm sóc móng tay cơ bản, cắt tỉa, sơn màu.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Làm móng chân cơ bản', 'mo_ta_ngan' => 'Chăm sóc móng', 'mo_ta_dai' => 'Chăm sóc móng chân cơ bản, làm sạch, sơn màu.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Combo tay + chân', 'mo_ta_ngan' => 'Combo nail', 'mo_ta_dai' => 'Dịch vụ làm móng tay và chân trọn gói, tỉ mỉ và đẹp.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Nail gel', 'mo_ta_ngan' => 'Nail hiện đại', 'mo_ta_dai' => 'Thiết kế móng gel theo yêu cầu, bền và sáng.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Nail acrylic', 'mo_ta_ngan' => 'Nail sáng tạo', 'mo_ta_dai' => 'Thiết kế móng acrylic nghệ thuật, nhiều mẫu phong phú.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set nail + massage tay', 'mo_ta_ngan' => 'Combo spa', 'mo_ta_dai' => 'Thiết kế móng tay kết hợp massage tay thư giãn.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Set nail + chân + massage', 'mo_ta_ngan' => 'Trọn gói', 'mo_ta_dai' => 'Trọn gói làm móng tay, chân kết hợp massage thư giãn.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc da tay', 'mo_ta_ngan' => 'Dưỡng da', 'mo_ta_dai' => 'Chăm sóc và dưỡng da tay mềm mịn.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc da chân', 'mo_ta_ngan' => 'Dưỡng da', 'mo_ta_dai' => 'Chăm sóc và dưỡng da chân mềm mịn.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 13, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc móng + da tay', 'mo_ta_ngan' => 'Combo', 'mo_ta_dai' => 'Kết hợp chăm sóc móng và dưỡng da tay toàn diện.', 'don_gia' => 200000],
+
+                
+                // Beauty Smile Clinic
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Tẩy trắng răng', 'mo_ta_ngan' => 'Chăm sóc răng', 'mo_ta_dai' => 'Dịch vụ tẩy trắng răng chuyên nghiệp, an toàn và hiệu quả.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chỉnh nha cơ bản', 'mo_ta_ngan' => 'Nha khoa', 'mo_ta_dai' => 'Chỉnh nha cơ bản, giúp răng đều và thẳng.', 'don_gia' => 800000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Combo tẩy trắng + kiểm tra răng', 'mo_ta_ngan' => 'Combo nha khoa', 'mo_ta_dai' => 'Tẩy trắng răng kết hợp kiểm tra răng định kỳ.', 'don_gia' => 1000000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Khám răng tổng quát', 'mo_ta_ngan' => 'Kiểm tra răng', 'mo_ta_dai' => 'Khám tổng quát răng miệng, phát hiện sớm các vấn đề.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Lấy cao răng', 'mo_ta_ngan' => 'Chăm sóc răng', 'mo_ta_dai' => 'Lấy cao răng, làm sạch mảng bám, ngăn ngừa sâu răng.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Nhổ răng', 'mo_ta_ngan' => 'Điều trị răng', 'mo_ta_dai' => 'Nhổ răng an toàn, giảm đau, phòng ngừa nhiễm trùng.', 'don_gia' => 300000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Combo khám + lấy cao răng', 'mo_ta_ngan' => 'Combo nha khoa', 'mo_ta_dai' => 'Khám răng tổng quát kết hợp lấy cao răng.', 'don_gia' => 300000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 7, 'ten_san_pham' => 'Combo chỉnh nha + tẩy trắng', 'mo_ta_ngan' => 'Combo nha khoa', 'mo_ta_dai' => 'Chỉnh nha kết hợp tẩy trắng răng, hiệu quả toàn diện.', 'don_gia' => 1200000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Điều trị sâu răng', 'mo_ta_ngan' => 'Điều trị răng', 'mo_ta_dai' => 'Điều trị sâu răng, bảo vệ răng tự nhiên.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 14, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc răng định kỳ', 'mo_ta_ngan' => 'Kiểm tra & phòng ngừa', 'mo_ta_dai' => 'Chăm sóc răng định kỳ, kiểm tra và phòng ngừa các bệnh nha khoa.', 'don_gia' => 200000],
+
+
+                // Amy Spa & Massage
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage lưng', 'mo_ta_ngan' => 'Thư giãn lưng', 'mo_ta_dai' => 'Massage lưng chuyên sâu, giảm đau mỏi và căng cơ.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage cổ vai gáy', 'mo_ta_ngan' => 'Giảm căng thẳng', 'mo_ta_dai' => 'Massage cổ vai gáy giúp thư giãn, giảm đau và căng thẳng.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Combo lưng + cổ vai gáy', 'mo_ta_ngan' => 'Combo massage', 'mo_ta_dai' => 'Massage lưng kết hợp cổ vai gáy, thư giãn toàn thân.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage chân', 'mo_ta_ngan' => 'Thư giãn chân', 'mo_ta_dai' => 'Massage chân chuyên sâu, giảm mỏi, phù hợp sau ngày dài.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Gội đầu dưỡng sinh', 'mo_ta_ngan' => 'Chăm sóc tóc', 'mo_ta_dai' => 'Gội đầu dưỡng sinh kết hợp massage đầu, giúp thư giãn và tóc mềm mượt.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Combo massage toàn thân + gội đầu', 'mo_ta_ngan' => 'Trọn gói thư giãn', 'mo_ta_dai' => 'Massage toàn thân kết hợp gội đầu dưỡng sinh, thư giãn toàn diện.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Massage mặt', 'mo_ta_ngan' => 'Chăm sóc da mặt', 'mo_ta_dai' => 'Massage mặt kết hợp dưỡng da, thư giãn và làm sáng da.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Đắp mặt nạ thư giãn', 'mo_ta_ngan' => 'Dưỡng da', 'mo_ta_dai' => 'Đắp mặt nạ dưỡng da kết hợp thư giãn tinh thần.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 6, 'ten_san_pham' => 'Set massage + mặt', 'mo_ta_ngan' => 'Combo spa', 'mo_ta_dai' => 'Massage toàn thân kết hợp chăm sóc da mặt, trọn gói.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 15, 'id_don_vi_tinh' => 5, 'ten_san_pham' => 'Chăm sóc da tay', 'mo_ta_ngan' => 'Dưỡng tay', 'mo_ta_dai' => 'Chăm sóc và dưỡng da tay mềm mịn.', 'don_gia' => 120000],
+                
+                
+                // CGV Cinema
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 2D', 'mo_ta_ngan' => 'Xem phim 2D', 'mo_ta_dai' => 'Vé xem phim 2D tại CGV Cinema, lựa chọn ghế theo nhu cầu.', 'don_gia' => 90000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 3D', 'mo_ta_ngan' => 'Xem phim 3D', 'mo_ta_dai' => 'Vé xem phim 3D tại CGV Cinema, trải nghiệm sống động.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé IMAX', 'mo_ta_ngan' => 'Xem phim IMAX', 'mo_ta_dai' => 'Vé xem phim IMAX, màn hình lớn, âm thanh sống động.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Set 2 vé 2D', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé 2D, tiết kiệm chi phí.', 'don_gia' => 170000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Set 2 vé 3D', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé 3D, trải nghiệm cùng bạn bè.', 'don_gia' => 220000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé VIP', 'mo_ta_ngan' => 'Ghế VIP', 'mo_ta_dai' => 'Vé VIP với ghế thoải mái, phục vụ nước và snack.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé học sinh', 'mo_ta_ngan' => 'Giảm giá học sinh', 'mo_ta_dai' => 'Vé giảm giá dành cho học sinh, sinh viên.', 'don_gia' => 70000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé cuối tuần', 'mo_ta_ngan' => 'Xem phim cuối tuần', 'mo_ta_dai' => 'Vé xem phim dịp cuối tuần, linh hoạt suất chiếu.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo vé + bắp nước', 'mo_ta_ngan' => 'Trọn gói xem phim', 'mo_ta_dai' => 'Combo 1 vé 2D + bắp + nước ngọt.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 16, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo vé VIP + bắp', 'mo_ta_ngan' => 'Trọn gói VIP', 'mo_ta_dai' => 'Vé VIP kết hợp bắp và nước ngọt, trải nghiệm cao cấp.', 'don_gia' => 300000],
+
+
+                // Lotte Cinema
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 2D', 'mo_ta_ngan' => 'Xem phim 2D', 'mo_ta_dai' => 'Vé xem phim 2D tại Lotte Cinema.', 'don_gia' => 90000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 3D', 'mo_ta_ngan' => 'Xem phim 3D', 'mo_ta_dai' => 'Vé xem phim 3D tại Lotte Cinema.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé IMAX', 'mo_ta_ngan' => 'Xem phim IMAX', 'mo_ta_dai' => 'Vé xem phim IMAX với màn hình lớn, âm thanh sống động.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Set 2 vé 2D', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé 2D, tiết kiệm chi phí.', 'don_gia' => 170000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Set 2 vé 3D', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé 3D, trải nghiệm cùng bạn bè.', 'don_gia' => 220000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé VIP', 'mo_ta_ngan' => 'Ghế VIP', 'mo_ta_dai' => 'Vé VIP với ghế thoải mái, phục vụ nước và snack.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé học sinh', 'mo_ta_ngan' => 'Giảm giá học sinh', 'mo_ta_dai' => 'Vé giảm giá học sinh, sinh viên.', 'don_gia' => 70000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé cuối tuần', 'mo_ta_ngan' => 'Xem phim cuối tuần', 'mo_ta_dai' => 'Vé xem phim dịp cuối tuần.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo vé + bắp', 'mo_ta_ngan' => 'Trọn gói xem phim', 'mo_ta_dai' => 'Combo 1 vé 2D + bắp + nước ngọt.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 17, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo vé VIP + bắp', 'mo_ta_ngan' => 'Trọn gói VIP', 'mo_ta_dai' => 'Vé VIP kết hợp bắp và nước ngọt.', 'don_gia' => 300000],
+               
+               
+                // Fun World Vietnam
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi cảm giác mạnh', 'mo_ta_ngan' => 'Vé trò chơi', 'mo_ta_dai' => 'Vé vào các trò chơi cảm giác mạnh tại Fun World Vietnam.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi nhẹ', 'mo_ta_ngan' => 'Vé trò chơi', 'mo_ta_dai' => 'Vé vào các trò chơi nhẹ cho trẻ em và gia đình.', 'don_gia' => 80000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi nước', 'mo_ta_ngan' => 'Vé trò chơi nước', 'mo_ta_dai' => 'Vé vào khu trò chơi nước, trượt, bể bơi.', 'don_gia' => 120000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 3 trò chơi', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo vé chơi 3 trò chơi chọn lựa.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 5 trò chơi', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo vé chơi 5 trò chơi hấp dẫn.', 'don_gia' => 500000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi VR', 'mo_ta_ngan' => 'Vé VR', 'mo_ta_dai' => 'Trải nghiệm thực tế ảo VR đầy hấp dẫn.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi điện tử', 'mo_ta_ngan' => 'Vé game', 'mo_ta_dai' => 'Vé chơi các máy game điện tử trong khu vui chơi.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi đội nhóm', 'mo_ta_ngan' => 'Vé team', 'mo_ta_dai' => 'Vé tham gia trò chơi theo nhóm.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 10 trò chơi', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo vé trọn gói 10 trò chơi.', 'don_gia' => 900000],
+                ['id_thuong_hieu' => 18, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi gia đình', 'mo_ta_ngan' => 'Vé gia đình', 'mo_ta_dai' => 'Vé tham gia các trò chơi cho cả gia đình.', 'don_gia' => 200000],
+
+                
+                // Jump Arena Vietnam
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 30 phút trampoline', 'mo_ta_ngan' => 'Vé nhảy', 'mo_ta_dai' => 'Vé tham gia nhảy trampoline 30 phút.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 60 phút trampoline', 'mo_ta_ngan' => 'Vé nhảy', 'mo_ta_dai' => 'Vé tham gia nhảy trampoline 60 phút.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi trẻ em', 'mo_ta_ngan' => 'Vé trẻ em', 'mo_ta_dai' => 'Vé cho khu trò chơi trẻ em.', 'don_gia' => 100000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 2 vé 30 phút', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé trampoline 30 phút.', 'don_gia' => 280000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 2 vé 60 phút', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 vé trampoline 60 phút.', 'don_gia' => 480000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi nhóm', 'mo_ta_ngan' => 'Vé team', 'mo_ta_dai' => 'Vé chơi theo nhóm, nhiều người cùng tham gia.', 'don_gia' => 180000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé thử thách cá nhân', 'mo_ta_ngan' => 'Vé thử thách', 'mo_ta_dai' => 'Vé tham gia thử thách cá nhân.', 'don_gia' => 200000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi nâng cao', 'mo_ta_ngan' => 'Vé nâng cao', 'mo_ta_dai' => 'Vé tham gia trò chơi nâng cao.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 5 vé', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 5 vé trampoline/trò chơi.', 'don_gia' => 1200000],
+                ['id_thuong_hieu' => 19, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé cuối tuần', 'mo_ta_ngan' => 'Vé cuối tuần', 'mo_ta_dai' => 'Vé tham gia cuối tuần, linh hoạt thời gian.', 'don_gia' => 220000],
+
+
+                // Escape Room VN
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 60 phút', 'mo_ta_ngan' => 'Vé escape room', 'mo_ta_dai' => 'Vé vào phòng escape room 60 phút, thử thách trí tuệ.', 'don_gia' => 250000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé 90 phút', 'mo_ta_ngan' => 'Vé escape room', 'mo_ta_dai' => 'Vé vào phòng escape room 90 phút.', 'don_gia' => 350000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé nhóm 4 người', 'mo_ta_ngan' => 'Vé nhóm', 'mo_ta_dai' => 'Vé cho nhóm 4 người tham gia escape room.', 'don_gia' => 900000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 2 phòng 60 phút', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 phòng escape room 60 phút.', 'don_gia' => 450000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo 2 phòng 90 phút', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo 2 phòng escape room 90 phút.', 'don_gia' => 650000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé cuối tuần', 'mo_ta_ngan' => 'Vé cuối tuần', 'mo_ta_dai' => 'Vé escape room linh hoạt cuối tuần.', 'don_gia' => 300000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé thử thách khó', 'mo_ta_ngan' => 'Vé khó', 'mo_ta_dai' => 'Vé tham gia phòng escape room thử thách cao.', 'don_gia' => 400000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé trò chơi trẻ em', 'mo_ta_ngan' => 'Vé trẻ em', 'mo_ta_dai' => 'Vé escape room cho trẻ em.', 'don_gia' => 150000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 9, 'ten_san_pham' => 'Combo gia đình', 'mo_ta_ngan' => 'Combo vé', 'mo_ta_dai' => 'Combo vé escape room cho cả gia đình.', 'don_gia' => 800000],
+                ['id_thuong_hieu' => 20, 'id_don_vi_tinh' => 8, 'ten_san_pham' => 'Vé VIP', 'mo_ta_ngan' => 'Vé VIP', 'mo_ta_dai' => 'Vé escape room VIP, trang bị đầy đủ tiện nghi.', 'don_gia' => 500000],
+
+            ],
+
+
+        );
+    }
+}

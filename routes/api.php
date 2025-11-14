@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChiTietThuongHieuController;
 use App\Http\Controllers\DichVuController;
 use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\NhaCungCapController;
@@ -27,6 +28,10 @@ Route::get('/thuong-hieu/get-data-by-ncc',[ThuongHieuController::class,'getDataB
 Route::post('/thuong-hieu/them-thuong-hieu',[ThuongHieuController::class,'addNew']);
 Route::post('/thuong-hieu/cap-nhat-thuong-hieu',[ThuongHieuController::class,'update']);
 Route::post('/thuong-hieu/xoa-thuong-hieu/{id}',[ThuongHieuController::class,'del']);
+
+//chi tiết thương hiệu
+//lấy toàn bộ các dịch vụ của các thương hiệu
+Route::get('/chi-tiet-thuong-hieu/get-all-data',[ChiTietThuongHieuController::class, 'getAllData']);
 
 
 

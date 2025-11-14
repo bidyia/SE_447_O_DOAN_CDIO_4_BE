@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('mo_ta_ngan');
             $table->text('mo_ta_dai');
             $table->string('don_gia');
-            $table->string('ghi_chu');
+            $table->string('ghi_chu')->nullable();
             $table->timestamps();
         });
     }

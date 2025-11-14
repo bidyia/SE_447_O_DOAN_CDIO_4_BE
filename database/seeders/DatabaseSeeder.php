@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             KhachHangSeeder::class,
             NhaCungCapSeeder::class,
             ThuongHieuSeeder::class,
+            ChiTietThuongHieuSeeder::class,
        ]);
     }
 }
