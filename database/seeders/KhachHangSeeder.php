@@ -24,8 +24,6 @@ class KhachHangSeeder extends Seeder
                     'email' => 'khachhang@gmail.com',
                     'so_dien_thoai' => '0123456789',
                     'password' => bcrypt('123456'),
-                    'dia_chi' =>'khách hàng',
-                    'hinh_anh' => 'hinh_anh',
                 ]
             ]
 

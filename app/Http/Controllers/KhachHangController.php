@@ -17,8 +17,6 @@ class KhachHangController extends Controller
                 'email'         => $request->email,
                 'so_dien_thoai' => $request->so_dien_thoai,
                 'password'      => bcrypt($request->password),
-                'dia_chi'       => $request->dia_chi,
-                'hinh_anh'      => $request->hinh_anh,
             ]);
             return response()->json([
                 'message' => 'Tạo tài khoản thành công',
