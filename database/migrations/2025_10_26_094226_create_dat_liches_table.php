@@ -16,9 +16,10 @@ return new class extends Migration
             $table->integer('id_khach_hang');
             $table->integer('id_chi_tiet_thuong_hieu');
             $table->date('ngay_dat_lich');
-            $table->integer('thoi_gian');
+            $table->time('thoi_gian');
             $table->integer('so_luong');
-            $table->text('ghi_chu');
+            $table->integer('trang_thai')->default(0);
+            $table->text('ghi_chu')->nullable();
             $table->timestamps();
         });
     }

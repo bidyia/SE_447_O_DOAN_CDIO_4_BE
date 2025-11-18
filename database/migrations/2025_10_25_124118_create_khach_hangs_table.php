@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('dia_chi')->nullable();
             $table->string('hinh_anh')->default('public\AvatarDefault.png');
+            $table->integer('diem_tich_luy')->default(0);
             $table->integer('is_active')->default(1);
             $table->integer('is_block')->default(0);
             $table->timestamps();

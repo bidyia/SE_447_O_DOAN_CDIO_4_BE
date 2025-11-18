@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChiTietThuongHieuController;
+use App\Http\Controllers\DatLichController;
 use App\Http\Controllers\DichVuController;
 use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\NhaCungCapController;
@@ -33,6 +34,9 @@ Route::post('/thuong-hieu/xoa-thuong-hieu/{id}',[ThuongHieuController::class,'de
 //lấy toàn bộ các dịch vụ của các thương hiệu
 Route::get('/chi-tiet-thuong-hieu/get-all-data',[ChiTietThuongHieuController::class, 'getAllData']);
 
+
+//lấy số lượng lịch sắp tới
+Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'getLichSapToi'])->middleware('auth:sanctum');
 
 
 

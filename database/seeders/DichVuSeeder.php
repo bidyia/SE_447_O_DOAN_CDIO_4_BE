@@ -23,7 +23,8 @@ class DichVuSeeder extends Seeder
                 ['ten_dich_vu'=>'Ẩm thực','slug_dich_vu'=>'am-thuc','hinh_anh'=>'https://bepos.io/wp-content/uploads/2023/06/logo-nha-hang-dep-7.jpg'],
                 ['ten_dich_vu'=>'chăm sóc','slug_dich_vu'=>'cham-soc','hinh_anh'=>'https://graphicsfamily.com/wp-content/uploads/edd/2021/06/Free-BeautySpa-Logo-Design-PSD-Download-2048x1152.jpg'],
                 ['ten_dich_vu'=>'giải trí','slug_dich_vu'=>'giai-tri','hinh_anh'=>'https://tse2.mm.bing.net/th/id/OIP.B75K2XC9_pCdoWFdr3JoCAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3']
-            ]
+            ],
+
 
         );
     }

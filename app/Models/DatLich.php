@@ -15,6 +15,7 @@ class DatLich extends Model
         'ngay_dat_lich',
         'thoi_gian',
         'so_luong',
+        'trang_thai',
         'ghi_chu',
     ];
 }
