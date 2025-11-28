@@ -52,7 +52,10 @@ class NhaCungCapController extends Controller
                         'message'             =>   'Đã đăng nhập thành công!',
                         'status'              =>   1,
                         'key'                 =>   $user->createToken('ma_so_bi_mat_nha_cung_cap')->plainTextToken,
-                        'ten'                 =>   $user->ho_ten
+                        'ten'                 =>   $user->ho_ten,
+                        'so_dien_thoai'       =>   $user->so_dien_thoai,
+                        'id'                  =>   $user->id,
+
                     ]);
                 }
             } else {

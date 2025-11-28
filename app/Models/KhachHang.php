@@ -16,6 +16,8 @@ class KhachHang extends Authenticatable
         'ho_ten',
         'email',
         'so_dien_thoai',
+        'ngay_sinh',
+        'gioi_tinh',
         'password',
         'dia_chi',
         'hinh_anh',

@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('chi_tiet_dat_lichs', function (Blueprint $table) {
             $table->id();
             $table->string('ma_hoa_don');
-            $table->integer('id_khach_hang');
             $table->integer('id_dat_lich');
             $table->integer('tong_tien_thanh_toan');
+            $table->integer('tong_tien_da_tra');
             $table->integer('trang_thai_thanh_toan');
-            $table->text('ghi_chu');
+            $table->text('ghi_chu')->nullable();
             $table->timestamps();
         });
     }

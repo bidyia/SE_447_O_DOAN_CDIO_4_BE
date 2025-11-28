@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('ho_ten');
             $table->string('email')->unique();
             $table->string('so_dien_thoai');
+            $table->date('ngay_sinh')->nullable();
+            $table->integer('gioi_tinh')->nullable();
             $table->string('password');
             $table->string('dia_chi')->nullable();
             $table->string('hinh_anh')->default('public\AvatarDefault.png');

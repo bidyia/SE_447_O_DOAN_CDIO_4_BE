@@ -11,11 +11,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {return $request->user();})->middleware('auth:sanctum');
-//http://127.0.0.1:8000/
+//http://127.0.0.1:8000/api/chi-tiet-thuong-hieu/get-all-data
 //ngrok: https://gallinulelike-kymberly-gloomless.ngrok-free.dev
 //khách hàng
 Route::Post('/khach-hang/dang-nhap',[KhachHangController::class, 'login']);
 Route::post('/khach-hang/dang-ky',[KhachHangController::class,'create']);
+Route::get('/khach-hang/profile',[KhachHangController::class,'getProfile'])->middleware('auth:sanctum');
 
 //nhà cung cấp
 Route::Post('/nha-cung-cap/dang-nhap',[NhaCungCapController::class, 'login']);
@@ -34,10 +35,13 @@ Route::post('/thuong-hieu/xoa-thuong-hieu/{id}',[ThuongHieuController::class,'de
 //lấy toàn bộ các dịch vụ của các thương hiệu
 Route::get('/chi-tiet-thuong-hieu/get-all-data',[ChiTietThuongHieuController::class, 'getAllData']);
 
+Route::get('/chi-tiet-thuong-hieu/get-data-by-id/{id}',[ChiTietThuongHieuController::class, 'getDataByID']);
+
+
 
 //lấy số lượng lịch sắp tới
 Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'getLichSapToi'])->middleware('auth:sanctum');
-
-
+//đặt lịch chưa trả đồng nào
+Route::post('/dat-lich/them-moi',[DatLichController::class, 'datLich']);
 
 

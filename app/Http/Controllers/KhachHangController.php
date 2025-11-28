@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class KhachHangController extends Controller
 {
+    public function getProfile(){
+        $khachhang = Auth::guard('sanctum')->user();
+        if($khachhang){
+            return response()->json([
+                'data' => $khachhang,
+                'status' =>true
+            ]);
+        } else{
+            return response()->json([
+                'status' =>false
+            ]);
+        }
+    }
     public function create(Request $request)
     {
         try {
@@ -52,7 +65,9 @@ class KhachHangController extends Controller
                         'message'   =>   'Đã đăng nhập thành công!',
                         'status'    =>   1,
                         'key'       =>   $user->createToken('ma_so_bi_mat_khach_hang')->plainTextToken,
-                        'ten'       =>   $user->ho_ten
+                        'ten'       =>   $user->ho_ten,
+                        'so_dien_thoai' =>   $user->so_dien_thoai,
+                        'id'    =>   $user->id,
                     ]);
                 }
             } else {
