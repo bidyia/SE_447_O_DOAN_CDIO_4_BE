@@ -11,6 +11,8 @@ class DatLich extends Model
     protected $table = 'dat_lichs';
     protected $fillable = [
         'id_khach_hang',
+        'ten_khach_hang',
+        'so_dien_thoai',
         'id_chi_tiet_thuong_hieu',
         'ngay_dat_lich',
         'thoi_gian',
