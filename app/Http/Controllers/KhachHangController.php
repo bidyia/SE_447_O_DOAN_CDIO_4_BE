@@ -6,32 +6,81 @@ use App\Models\KhachHang;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class KhachHangController extends Controller
 {
-    public function checkLogin(){
-        $khachhang = $this->isKhachHang();
-        if($khachhang){
+    public function logout(){
+           $khachhang = $this->isKhachHang();
+            if($khachhang){
+            DB::table('personal_access_tokens')
+              ->where('id', $khachhang->currentAccessToken()->id)->delete();
+
             return response()->json([
-                'status' =>true
+                'status' => true,
+                'message' => "Đã đăng xuất thiết bị này thành công"
             ]);
-        } else{
+        } else {
             return response()->json([
-                'status' =>false,
+                'status' => false,
+                'message' => "Vui lòng đăng nhập"
+            ]);
+        }
+    }
+    public function upDate(Request $request)
+    {
+        $khachhang = $this->isKhachHang();
+        if ($khachhang) {
+            try {
+                $khachhang->update([
+                    'ho_ten'        => $request->ho_ten,
+                    'so_dien_thoai' => $request->so_dien_thoai,
+                    'ngay_sinh'     => $request->ngay_sinh,
+                    'gioi_tinh'     => $request->gioi_tinh,
+                    'dia_chi'       => $request->dia_chi
+                ]);
+                 return response()->json([
+                    'status' => true,
+                    'message'=> "Bạn đã cập nhật thông tin thành công!"
+                ]);
+            } catch (Exception) {
+                return response()->json([
+                    'status'=> false,
+                    'message' => "Có lỗi xảy ra!"
+                ]);
+            }
+        }else{
+             return response()->json([
+                    'status'=> false,
+                    'message' => "không tìm thấy khách hàng!"
+                ]);
+        }
+    }
+    public function checkLogin()
+    {
+        $khachhang = $this->isKhachHang();
+        if ($khachhang) {
+            return response()->json([
+                'status' => true
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
                 'message' => 'Bạn phải đăng nhập nhé!'
             ]);
         }
     }
-    public function getProfile(){
+    public function getProfile()
+    {
         $khachhang = Auth::guard('sanctum')->user();
-        if($khachhang){
+        if ($khachhang) {
             return response()->json([
                 'data' => $khachhang,
-                'status' =>true
+                'status' => true
             ]);
-        } else{
+        } else {
             return response()->json([
-                'status' =>false
+                'status' => false
             ]);
         }
     }

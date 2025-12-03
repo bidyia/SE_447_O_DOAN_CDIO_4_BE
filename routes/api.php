@@ -18,6 +18,8 @@ Route::Post('/khach-hang/dang-nhap',[KhachHangController::class, 'login']);
 Route::post('/khach-hang/dang-ky',[KhachHangController::class,'create']);
 Route::get('/khach-hang/profile',[KhachHangController::class,'getProfile'])->middleware('auth:sanctum');
 Route::post('/khach-hang/check-login',[KhachHangController::class,'checkLogin']);
+Route::post('/khach-hang/cap-nhat',[KhachHangController::class,'upDate']);
+Route::get('/khach-hang/dang-xuat',[KhachHangController::class,'logout']);
 
 //nhà cung cấp
 Route::Post('/nha-cung-cap/dang-nhap',[NhaCungCapController::class, 'login']);
@@ -41,11 +43,16 @@ Route::get('/chi-tiet-thuong-hieu/get-data-by-id/{id}',[ChiTietThuongHieuControl
 
 
 //lấy số lượng lịch sắp tới
-Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'getLichSapToi']);
+Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'countLichSapToi']);
 //đặt lịch chưa trả đồng nào
 Route::post('/dat-lich/them-moi',[DatLichController::class, 'datLich']);
 
 // lấy lịch mới đặt
 Route::get('/dat-lich/lich-moi-dat',[DatLichController::class, 'getLichMoiDat']);
+
+Route::get('/dat-lich/lich-sap-toi',[DatLichController::class, 'getLichSapToi']);
+Route::get('/dat-lich/lich-da-qua',[DatLichController::class, 'getLichDaQua']);
+Route::get('/dat-lich/get-lich-by-kh',[DatLichController::class, 'getByUserLogin']);
+Route::post('/dat-lich/huy-lich/{id}',[DatLichController::class, 'changeStatus']);
 
 
