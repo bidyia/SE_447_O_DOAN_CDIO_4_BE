@@ -2,7 +2,22 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controller as BaseController;
+
+
+class Controller extends BaseController
 {
-    //
+    use AuthorizesRequests, ValidatesRequests;
+    public function isKhachHang()
+    {
+        $user = Auth::guard('sanctum')->user();
+
+        if ($user instanceof \App\Models\KhachHang) {
+            return $user;
+        }
+        return false;
+    }
 }

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::Post('/khach-hang/dang-nhap',[KhachHangController::class, 'login']);
 Route::post('/khach-hang/dang-ky',[KhachHangController::class,'create']);
 Route::get('/khach-hang/profile',[KhachHangController::class,'getProfile'])->middleware('auth:sanctum');
+Route::post('/khach-hang/check-login',[KhachHangController::class,'checkLogin']);
 
 //nhà cung cấp
 Route::Post('/nha-cung-cap/dang-nhap',[NhaCungCapController::class, 'login']);
@@ -40,8 +41,11 @@ Route::get('/chi-tiet-thuong-hieu/get-data-by-id/{id}',[ChiTietThuongHieuControl
 
 
 //lấy số lượng lịch sắp tới
-Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'getLichSapToi'])->middleware('auth:sanctum');
+Route::get('/dat-lich/count-data-lich',[DatLichController::class, 'getLichSapToi']);
 //đặt lịch chưa trả đồng nào
 Route::post('/dat-lich/them-moi',[DatLichController::class, 'datLich']);
+
+// lấy lịch mới đặt
+Route::get('/dat-lich/lich-moi-dat',[DatLichController::class, 'getLichMoiDat']);
 
 

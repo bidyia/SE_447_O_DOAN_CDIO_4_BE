@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class KhachHangController extends Controller
 {
+    public function checkLogin(){
+        $khachhang = $this->isKhachHang();
+        if($khachhang){
+            return response()->json([
+                'status' =>true
+            ]);
+        } else{
+            return response()->json([
+                'status' =>false,
+                'message' => 'Bạn phải đăng nhập nhé!'
+            ]);
+        }
+    }
     public function getProfile(){
         $khachhang = Auth::guard('sanctum')->user();
         if($khachhang){
