@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('dat_lichs', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_nha_cung_cap');
             $table->integer('id_khach_hang');
             $table->string('ten_khach_hang');
             $table->string('so_dien_thoai');

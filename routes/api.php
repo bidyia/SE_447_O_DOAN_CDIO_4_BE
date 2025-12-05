@@ -24,6 +24,12 @@ Route::get('/khach-hang/dang-xuat',[KhachHangController::class,'logout']);
 //nhà cung cấp
 Route::Post('/nha-cung-cap/dang-nhap',[NhaCungCapController::class, 'login']);
 Route::post('/nha-cung-cap/dang-ky',[NhaCungCapController::class,'create']);
+Route::get('nha-cung-cap/lich-sap-toi',[NhaCungCapController::class, 'getDataLich']);
+Route::post('/nha-cung-cap/check-login',[NhaCungCapController::class,'checkLogin']);
+Route::get('/nha-cung-cap/count-booking',[NhaCungCapController::class,'countBooking']);
+Route::get('/nha-cung-cap/booking',[NhaCungCapController::class,'dataBooking']);
+Route::get('/nha-cung-cap/today-booking',[NhaCungCapController::class,'dataTodayBooking']);
+
 
 //dịch vụ
 Route::get('/dich-vu/get-data',[DichVuController::class , 'getData']);

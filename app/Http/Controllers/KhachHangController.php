@@ -61,7 +61,8 @@ class KhachHangController extends Controller
         $khachhang = $this->isKhachHang();
         if ($khachhang) {
             return response()->json([
-                'status' => true
+                'status' => true,
+                'data'   => $khachhang
             ]);
         } else {
             return response()->json([

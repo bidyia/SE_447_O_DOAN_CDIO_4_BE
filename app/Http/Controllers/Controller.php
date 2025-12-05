@@ -20,4 +20,13 @@ class Controller extends BaseController
         }
         return false;
     }
+     public function isNhaCungCap()
+    {
+        $user = Auth::guard('sanctum')->user();
+
+        if ($user instanceof \App\Models\NhaCungCap) {
+            return $user;
+        }
+        return false;
+    }
 }

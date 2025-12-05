@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChiTietDatLich;
+use App\Models\ChiTietThuongHieu;
 use App\Models\DatLich;
+use App\Models\ThuongHieu;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -67,7 +69,13 @@ class DatLichController extends Controller
     public function datLich(Request $request)
     {
         try {
+
+            $id_Thuong_hieu = ChiTietThuongHieu::Where('id',$request->id_chi_tiet_thuong_hieu)
+            ->value('id_thuong_hieu');
+            $nha_cung_cap = ThuongHieu::where('id',$id_Thuong_hieu)
+            ->value('id_nha_cung_cap');
             $dat_lich_data = DatLich::create([
+                'id_nha_cung_cap'         => $nha_cung_cap,
                 'id_khach_hang'           => $request->id_khach_hang,
                 'ten_khach_hang'          => $request->ho_ten,
                 'so_dien_thoai'           => $request->so_dien_thoai,
@@ -136,6 +144,8 @@ class DatLichController extends Controller
                     'dat_lichs.trang_thai',
                     'chi_tiet_dat_lichs.trang_thai_thanh_toan',
                 )
+                 ->orderBy('dat_lichs.ngay_dat_lich','ASC')
+                ->orderBy('dat_lichs.thoi_gian','ASC')
                 ->get();
 
             return response()->json([
@@ -194,6 +204,7 @@ class DatLichController extends Controller
             $today = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
             $time = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
             $data = DatLich::where('id_khach_hang', $khachang->id)
+                ->where('trang_thai',  '<>' ,2)
                 ->where(function ($query) use ($today, $time) {
                     $query->where('ngay_dat_lich', '>', $today)
                         ->orWhere(function ($q) use ($today, $time) {
@@ -235,6 +246,7 @@ class DatLichController extends Controller
             $today = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
             $time = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
             $so_lich_sap_toi = DatLich::where('id_khach_hang', $khachang->id)
+              ->where('trang_thai',  '<>' ,2)
                 ->where(function ($query) use ($today, $time) {
                     $query->where('ngay_dat_lich', '>', $today)
                         ->orWhere(function ($q) use ($today, $time) {
