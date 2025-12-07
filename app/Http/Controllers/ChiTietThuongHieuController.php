@@ -48,6 +48,7 @@ class ChiTietThuongHieuController extends Controller
             $data = ChiTietThuongHieu::join('thuong_hieus', 'chi_tiet_thuong_hieus.id_thuong_hieu', 'thuong_hieus.id')
                 ->join('don_vi_tinhs', 'chi_tiet_thuong_hieus.id_don_vi_tinh', 'don_vi_tinhs.id')
                 ->join('dich_vus', 'thuong_hieus.id_dich_vu', 'dich_vus.id')
+                ->where('chi_tiet_thuong_hieus.trang_thai',1)
                 ->select(
                     'chi_tiet_thuong_hieus.id',
                     'dich_vus.ten_dich_vu',

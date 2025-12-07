@@ -14,6 +14,56 @@ use Illuminate\Support\Facades\Auth;
 
 class NhaCungCapController extends Controller
 {
+    public function changeStatus(Request $request)
+    {
+        $data = ChiTietThuongHieu::where('id', $request->id)->first();
+        if ($data) {
+            $data->trang_thai = $request->trang_thai;
+            $data->save();
+            return response()->json([
+                'status' => true,
+                'message' => 'Đổi trạng thái thành công'
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'đã có lỗi sảy ra'
+            ]);
+        }
+    }
+    public function dataMyService()
+    {
+        $NhaCungCap = $this->isNhaCungCap();
+        if ($NhaCungCap) {
+            $id_thuong_hieu = ThuongHieu::where('id_nha_cung_cap', $NhaCungCap->id)->first();
+            $count_booking = DatLich::where('id_nha_cung_cap', $NhaCungCap->id)->count();
+            $data = ChiTietThuongHieu::where('id_thuong_hieu', $id_thuong_hieu->id)
+                ->join('thuong_hieus', 'chi_tiet_thuong_hieus.id_thuong_hieu', 'thuong_hieus.id')
+                ->join('dich_vus', 'thuong_hieus.id_dich_vu', 'dich_vus.id')
+                ->select(
+                    'chi_tiet_thuong_hieus.id',
+                    'chi_tiet_thuong_hieus.ten_san_pham',
+                    'chi_tiet_thuong_hieus.don_gia',
+                    'chi_tiet_thuong_hieus.trang_thai',
+                    'thuong_hieus.hinh_anh',
+                    'chi_tiet_thuong_hieus.mo_ta_ngan',
+                    'dich_vus.ten_dich_vu'
+                )
+                ->get();
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+                'count_booking' => $count_booking,
+                'nha_cung_cap' => $NhaCungCap->ho_ten,
+
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'đã có lỗi sảy ra'
+            ]);
+        }
+    }
     public function dataTodayBooking()
     {
         $NCC = $this->isNhaCungCap();
@@ -28,12 +78,13 @@ class NhaCungCapController extends Controller
             $data = DatLich::join('chi_tiet_dat_lichs', 'dat_lichs.id', 'chi_tiet_dat_lichs.id_dat_lich')
                 ->where('dat_lichs.id_nha_cung_cap', $NCC->id)
                 ->where(function ($query) use ($today, $time) {
-                    $query->where('dat_lichs.ngay_dat_lich', $today)
+                    $query->where('ngay_dat_lich', '>', $today)
                         ->orWhere(function ($q) use ($today, $time) {
-                            $q->where('dat_lichs.ngay_dat_lich', $today)
+                            $q->where('ngay_dat_lich', '=', $today)
                                 ->where('thoi_gian', '>', $time);
                         });
                 })
+                ->whereNotIn('dat_lichs.trang_thai', [2, 3])
                 ->join('chi_tiet_thuong_hieus', 'dat_lichs.id_chi_tiet_thuong_hieu', 'chi_tiet_thuong_hieus.id')
                 ->join('thuong_hieus', 'chi_tiet_thuong_hieus.id_thuong_hieu', 'thuong_hieus.id')
                 ->join('dich_vus', 'thuong_hieus.id_dich_vu', 'dich_vus.id')
@@ -58,10 +109,11 @@ class NhaCungCapController extends Controller
             }
         }
     }
-    public function dataBooking()
+    public function allDataBooking()
     {
         $NCC = $this->isNhaCungCap();
-
+        $today = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $time = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
         if (!$NCC) {
             return response()->json([
                 'status' => false,
@@ -74,16 +126,75 @@ class NhaCungCapController extends Controller
                 ->join('thuong_hieus', 'chi_tiet_thuong_hieus.id_thuong_hieu', 'thuong_hieus.id')
                 ->join('dich_vus', 'thuong_hieus.id_dich_vu', 'dich_vus.id')
                 ->where('dat_lichs.id_nha_cung_cap', $NCC->id)
-                ->where('dat_lichs.trang_thai', '<>', 2)
+                ->where(function ($query) use ($today, $time) {
+                    $query->where('dat_lichs.ngay_dat_lich', '>=', $today)
+                        ->orWhere(function ($q) use ($today, $time) {
+                            $q->where('dat_lichs.ngay_dat_lich', $today)
+                                ->where('thoi_gian', '>', $time);
+                        });
+                })
                 ->select(
                     'dat_lichs.id',
                     'dat_lichs.ten_khach_hang',
+                    'dat_lichs.so_dien_thoai',
                     'chi_tiet_thuong_hieus.ten_san_pham',
                     'dich_vus.ten_dich_vu',
                     'chi_tiet_dat_lichs.ma_hoa_don',
                     'dat_lichs.trang_thai',
                     'dat_lichs.thoi_gian',
                     'dat_lichs.ngay_dat_lich',
+                    'chi_tiet_dat_lichs.tong_tien_thanh_toan',
+                    'chi_tiet_dat_lichs.tong_tien_da_tra',
+                    'chi_tiet_dat_lichs.ghi_chu',
+
+                )
+                ->orderBy('dat_lichs.ngay_dat_lich', 'ASC')
+                ->orderBy('dat_lichs.thoi_gian', 'ASC')
+                ->get();
+            return response()->json([
+                'status' => true,
+                'data' => $data
+            ]);
+        }
+    }
+    public function dataBooking()
+    {
+        $NCC = $this->isNhaCungCap();
+        $today = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $time = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
+        if (!$NCC) {
+            return response()->json([
+                'status' => false,
+                'message' => 'đã có lỗi sảy ra'
+            ]);
+        } else {
+
+            $data = DatLich::join('chi_tiet_dat_lichs', 'dat_lichs.id', 'chi_tiet_dat_lichs.id_dat_lich')
+                ->join('chi_tiet_thuong_hieus', 'dat_lichs.id_chi_tiet_thuong_hieu', 'chi_tiet_thuong_hieus.id')
+                ->join('thuong_hieus', 'chi_tiet_thuong_hieus.id_thuong_hieu', 'thuong_hieus.id')
+                ->join('dich_vus', 'thuong_hieus.id_dich_vu', 'dich_vus.id')
+                ->where('dat_lichs.id_nha_cung_cap', $NCC->id)
+                ->where(function ($query) use ($today, $time) {
+                    $query->where('ngay_dat_lich', '>', $today)
+                        ->orWhere(function ($q) use ($today, $time) {
+                            $q->where('ngay_dat_lich', '=', $today)
+                                ->where('thoi_gian', '>', $time);
+                        });
+                })
+                ->whereNotIn('dat_lichs.trang_thai', [2, 3])
+                ->select(
+                    'dat_lichs.id',
+                    'dat_lichs.ten_khach_hang',
+                    'dat_lichs.so_dien_thoai',
+                    'chi_tiet_thuong_hieus.ten_san_pham',
+                    'dich_vus.ten_dich_vu',
+                    'chi_tiet_dat_lichs.ma_hoa_don',
+                    'dat_lichs.trang_thai',
+                    'dat_lichs.thoi_gian',
+                    'dat_lichs.ngay_dat_lich',
+                    'chi_tiet_dat_lichs.tong_tien_thanh_toan',
+                    'chi_tiet_dat_lichs.tong_tien_da_tra',
+                    'chi_tiet_dat_lichs.ghi_chu',
 
                 )
                 ->orderBy('dat_lichs.ngay_dat_lich', 'ASC')
@@ -111,7 +222,7 @@ class NhaCungCapController extends Controller
                 $today = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
                 $time = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
                 $so_lich_sap_toi = DatLich::where('id_nha_cung_cap', $NCC->id)
-                    ->where('trang_thai',  '<>', 2)
+                    ->whereNotIn('dat_lichs.trang_thai', [2, 3])
                     ->where(function ($query) use ($today, $time) {
                         $query->where('ngay_dat_lich', '>', $today)
                             ->orWhere(function ($q) use ($today, $time) {

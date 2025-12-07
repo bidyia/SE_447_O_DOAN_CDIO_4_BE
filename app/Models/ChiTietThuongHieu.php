@@ -16,6 +16,7 @@ class ChiTietThuongHieu extends Model
         'mo_ta_ngan',
         'mo_ta_dai',
         'don_gia',
+        'trang_thai',
         'ghi_chu',
 
     ];

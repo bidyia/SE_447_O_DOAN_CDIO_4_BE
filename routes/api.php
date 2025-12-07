@@ -19,7 +19,6 @@ Route::post('/khach-hang/dang-ky',[KhachHangController::class,'create']);
 Route::get('/khach-hang/profile',[KhachHangController::class,'getProfile'])->middleware('auth:sanctum');
 Route::post('/khach-hang/check-login',[KhachHangController::class,'checkLogin']);
 Route::post('/khach-hang/cap-nhat',[KhachHangController::class,'upDate']);
-Route::get('/khach-hang/dang-xuat',[KhachHangController::class,'logout']);
 
 //nhà cung cấp
 Route::Post('/nha-cung-cap/dang-nhap',[NhaCungCapController::class, 'login']);
@@ -29,6 +28,11 @@ Route::post('/nha-cung-cap/check-login',[NhaCungCapController::class,'checkLogin
 Route::get('/nha-cung-cap/count-booking',[NhaCungCapController::class,'countBooking']);
 Route::get('/nha-cung-cap/booking',[NhaCungCapController::class,'dataBooking']);
 Route::get('/nha-cung-cap/today-booking',[NhaCungCapController::class,'dataTodayBooking']);
+Route::get('/nha-cung-cap/all-booking',[NhaCungCapController::class,'allDataBooking']);
+Route::get('/nha-cung-cap/my-service',[NhaCungCapController::class,'dataMyService']);
+Route::post('/nha-cung-cap/my-service/change-status',[NhaCungCapController::class,'changeStatus']);
+
+
 
 
 //dịch vụ
@@ -59,6 +63,10 @@ Route::get('/dat-lich/lich-moi-dat',[DatLichController::class, 'getLichMoiDat'])
 Route::get('/dat-lich/lich-sap-toi',[DatLichController::class, 'getLichSapToi']);
 Route::get('/dat-lich/lich-da-qua',[DatLichController::class, 'getLichDaQua']);
 Route::get('/dat-lich/get-lich-by-kh',[DatLichController::class, 'getByUserLogin']);
-Route::post('/dat-lich/huy-lich/{id}',[DatLichController::class, 'changeStatus']);
+Route::post('/dat-lich/huy-lich/{id}',[DatLichController::class, 'huyLich']);
+Route::post('/dat-lich/change-status',[DatLichController::class, 'changeStatus']);
+
+//đăng xuất 
+Route::get('/dang-xuat',[KhachHangController::class,'logout']);
 
 

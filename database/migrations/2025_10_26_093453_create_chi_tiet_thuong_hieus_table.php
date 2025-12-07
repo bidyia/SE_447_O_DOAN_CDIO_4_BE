@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('mo_ta_ngan');
             $table->text('mo_ta_dai');
             $table->string('don_gia');
+            $table->integer('trang_thai');//0 bị block 1: accecpt hiển thị
             $table->string('ghi_chu')->nullable();
             $table->timestamps();
         });

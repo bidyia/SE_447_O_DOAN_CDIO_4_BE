@@ -10,11 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class KhachHangController extends Controller
 {
-    public function logout(){
-           $khachhang = $this->isKhachHang();
-            if($khachhang){
+    public function logout()
+    {
+        $khachhang = $this->isKhachHang();
+        $nhacungcap = $this->isNhaCungCap();
+        if ($khachhang) {
             DB::table('personal_access_tokens')
-              ->where('id', $khachhang->currentAccessToken()->id)->delete();
+                ->where('id', $khachhang->currentAccessToken()->id)->delete();
+
+            return response()->json([
+                'status' => true,
+                'message' => "Đã đăng xuất thiết bị này thành công"
+            ]);
+        } else if ($nhacungcap) {
+            DB::table('personal_access_tokens')
+                ->where('id', $nhacungcap->currentAccessToken()->id)->delete();
 
             return response()->json([
                 'status' => true,
@@ -39,21 +49,21 @@ class KhachHangController extends Controller
                     'gioi_tinh'     => $request->gioi_tinh,
                     'dia_chi'       => $request->dia_chi
                 ]);
-                 return response()->json([
+                return response()->json([
                     'status' => true,
-                    'message'=> "Bạn đã cập nhật thông tin thành công!"
+                    'message' => "Bạn đã cập nhật thông tin thành công!"
                 ]);
             } catch (Exception) {
                 return response()->json([
-                    'status'=> false,
+                    'status' => false,
                     'message' => "Có lỗi xảy ra!"
                 ]);
             }
-        }else{
-             return response()->json([
-                    'status'=> false,
-                    'message' => "không tìm thấy khách hàng!"
-                ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => "không tìm thấy khách hàng!"
+            ]);
         }
     }
     public function checkLogin()
