@@ -14,6 +14,69 @@ use Illuminate\Support\Facades\Auth;
 
 class NhaCungCapController extends Controller
 {
+    public function changeProfile(Request $request)
+    {
+        $NhaCungCap = $this->isNhaCungCap();
+
+        if ($NhaCungCap) {
+            try {
+                $ThuongHieu = ThuongHieu::where('id_nha_cung_cap', $NhaCungCap->id)->first();
+                $NhaCungCap->update([
+                    'so_dien_thoai' => $request->so_dien_thoai,
+                    'email'         => $request->email,
+                ]);
+                $ThuongHieu->update([
+                    'ten_thuong_hieu'        => $request->ten_thuong_hieu,
+                    'mo_ta_ngan'             => $request->mo_ta_ngan,
+                    'dia_chi_cu_the'         => $request->dia_chi_cu_the,
+                    'tinh_thanh'             => $request->tinh_thanh
+                ]);
+                return response()->json([
+                    'status' => true,
+                    'message' => "Bạn đã cập nhật thông tin thành công!"
+                ]);
+            } catch (Exception) {
+                return response()->json([
+                    'status' => false,
+                    'message' => "Có lỗi xảy ra!"
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Bạn phải đăng nhập nhé!'
+            ]);
+        }
+    }
+    public function getProfile()
+    {
+        $NhaCungCap = $this->isNhaCungCap();
+        if ($NhaCungCap) {
+            $data = ThuongHieu::where('id_nha_cung_cap', $NhaCungCap->id)
+                ->join('nha_cung_caps', 'thuong_hieus.id_nha_cung_cap', 'nha_cung_caps.id')
+                ->select(
+                    'thuong_hieus.id as id_thuong_hieu',
+                    'nha_cung_caps.id as id_nha_cung_cap',
+                    'thuong_hieus.ten_thuong_hieu',
+                    'thuong_hieus.mo_ta_ngan',
+                    'thuong_hieus.dia_chi_cu_the',
+                    'thuong_hieus.tinh_thanh',
+                    'nha_cung_caps.so_dien_thoai',
+                    'nha_cung_caps.email',
+                    'nha_cung_caps.ho_ten',
+                )
+                ->get();
+            return response()->json([
+                'status' => true,
+                'data'   => $data
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Bạn phải đăng nhập nhé!'
+            ]);
+        }
+    }
     public function changeStatus(Request $request)
     {
         $data = ChiTietThuongHieu::where('id', $request->id)->first();

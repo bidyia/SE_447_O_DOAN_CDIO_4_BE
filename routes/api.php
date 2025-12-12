@@ -31,6 +31,9 @@ Route::get('/nha-cung-cap/today-booking',[NhaCungCapController::class,'dataToday
 Route::get('/nha-cung-cap/all-booking',[NhaCungCapController::class,'allDataBooking']);
 Route::get('/nha-cung-cap/my-service',[NhaCungCapController::class,'dataMyService']);
 Route::post('/nha-cung-cap/my-service/change-status',[NhaCungCapController::class,'changeStatus']);
+Route::get('/nha-cung-cap/profile',[NhaCungCapController::class,'getProfile']);
+Route::post('/nha-cung-cap/change-profile',[NhaCungCapController::class,'changeProfile']);
+
 
 
 
